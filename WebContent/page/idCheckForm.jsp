@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="idCheckProc" class="grad.UserInformationSQL"/>
+<jsp:useBean id="idCheckProc" class="grad.UserDAO"/>
 <%   
 	String id = request.getParameter("user_id");
 	boolean result = idCheckProc.idCheck(id);

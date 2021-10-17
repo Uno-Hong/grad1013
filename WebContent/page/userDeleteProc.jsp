@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
 <% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="userDeleteProc" class="grad.UserInformationSQL"/>
-<jsp:useBean id="userBean" class="grad.UserBean"/>
+<jsp:useBean id="userDeleteProc" class="grad.UserDAO"/>
+<jsp:useBean id="userBean" class="grad.UserDTO"/>
 <jsp:setProperty property="*" name="userBean"/>
 <%
 	Object obj_sid = session.getAttribute("sessionID");

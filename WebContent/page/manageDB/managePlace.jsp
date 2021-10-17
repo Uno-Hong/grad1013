@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="userName" class="grad.UserInformationSQL"/>
-<jsp:useBean id="userBean" class="grad.UserBean"/>
+<jsp:useBean id="userName" class="grad.UserDAO"/>
+<jsp:useBean id="userBean" class="grad.UserDTO"/>
 <jsp:setProperty property="*" name="userBean"/>
         <%
 	    	String requestURI = request.getRequestURI();
@@ -72,7 +72,7 @@
                 관리
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+           <!-- Nav Item --->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -89,15 +89,15 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Nav Item --->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePlace"
+                    aria-expanded="true" aria-controls="collapsePlace">
                     <!-- <i class="fas fa-fw fa-wrench"></i>-->
                     <i class="fas fa-fw fa-table"></i>
                     <span>명소</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapsePlace" class="collapse" aria-labelledby="headingPlace"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">명소 관리:</h6>
@@ -107,7 +107,43 @@
                     </div>
                 </div>
             </li>
+            
+            <!-- Nav Item --->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRest"
+                    aria-expanded="true" aria-controls="collapseRest">
+                    <!-- <i class="fas fa-fw fa-wrench"></i>-->
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>맛집</span>
+                </a>
+                <div id="collapseRest" class="collapse" aria-labelledby="headingRest"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">맛집 관리:</h6>
+                        <a class="collapse-item" href="manageRest.jsp">수정</a>
+                        <a class="collapse-item" href="manageRestInsert.jsp">등록</a>
+          
+                    </div>
+                </div>
+            </li>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            
+            <!-- Nav Item --->
+            <li class="nav-item">
+                <a class="nav-link" href="manageDisplay.jsp">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>화면 구성</span></a>
+            </li>
+            
+             <!-- Nav Item --->
+            <li class="nav-item">
+                <a class="nav-link" href="manageCenter.jsp">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>고객센터</span></a>
+            </li>
+            
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
-<jsp:useBean id="changePwProc" class="grad.UserInformationSQL"/>
+<jsp:useBean id="changePwProc" class="grad.UserDAO"/>
 <% request.setCharacterEncoding("UTF-8"); %>
 <%
 	Object obj_sid = session.getAttribute("sessionID");

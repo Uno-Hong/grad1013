@@ -1,9 +1,11 @@
-<%@page import="grad.UserBean"%>
+<%@page import="grad.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
-<% request.setCharacterEncoding("UTF-8"); %>
-<jsp:useBean id="joinProc" class="grad.UserInformationSQL"/>
-<jsp:useBean id="userBean" class="grad.UserBean"/>
+<%
+request.setCharacterEncoding("UTF-8");
+%>
+<jsp:useBean id="joinProc" class="grad.UserDAO"/>
+<jsp:useBean id="userBean" class="grad.UserDTO"/>
 <jsp:setProperty property="*" name="userBean"/>
 <style>
       body {

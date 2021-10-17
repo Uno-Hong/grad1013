@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import = "java.sql.*" %>
-<jsp:useBean id="searchIdProc" class="grad.UserInformationSQL"/>
+<jsp:useBean id="searchIdProc" class="grad.UserDAO"/>
 <% request.setCharacterEncoding("UTF-8"); %>
     <%
 		String user_name = request.getParameter("si_name");

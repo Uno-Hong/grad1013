@@ -4,8 +4,8 @@
 <%@ page import="java.io.*" %>
 <%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy" %>
 <%@ page import="com.oreilly.servlet.MultipartRequest" %>
-<jsp:useBean id="userName" class="grad.UserInformationSQL"/>
-<jsp:useBean id="userBean" class="grad.UserBean"/>
+<jsp:useBean id="userName" class="grad.UserDAO"/>
+<jsp:useBean id="userBean" class="grad.UserDTO"/>
 <jsp:setProperty property="*" name="userBean"/>
         <%
 	    	String requestURI = request.getRequestURI();
@@ -76,7 +76,7 @@
                 관리
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Nav Item --->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -93,15 +93,15 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
+            <!-- Nav Item --->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePlace"
+                    aria-expanded="true" aria-controls="collapsePlace">
                     <!-- <i class="fas fa-fw fa-wrench"></i>-->
                     <i class="fas fa-fw fa-table"></i>
                     <span>명소</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                <div id="collapsePlace" class="collapse" aria-labelledby="headingPlace"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">명소 관리:</h6>
@@ -110,6 +110,42 @@
           
                     </div>
                 </div>
+            </li>
+            
+            <!-- Nav Item --->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRest"
+                    aria-expanded="true" aria-controls="collapseRest">
+                    <!-- <i class="fas fa-fw fa-wrench"></i>-->
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>맛집</span>
+                </a>
+                <div id="collapseRest" class="collapse" aria-labelledby="headingRest"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">맛집 관리:</h6>
+                        <a class="collapse-item" href="manageRest.jsp">수정</a>
+                        <a class="collapse-item" href="manageRestInsert.jsp">등록</a>
+          
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            
+            <!-- Nav Item --->
+            <li class="nav-item">
+                <a class="nav-link" href="manageDisplay.jsp">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>화면 구성</span></a>
+            </li>
+            
+             <!-- Nav Item --->
+            <li class="nav-item">
+                <a class="nav-link" href="manageCenter.jsp">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>고객센터</span></a>
             </li>
 
             <!-- Divider -->
@@ -204,57 +240,41 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-<form name="frmName" method="post" enctype="multipart/form-data" 
-action="managePlaceInsert.jsp">
-
-    <input type="file" name="uploadFile"><br/><br/>
-    <input type="submit" value="UPLOAD"><br/>
-</form>
-
-<%
-
-		 // 해당 폴더에 이미지를 저장시킨다
-		
-		String saveFolders = application.getRealPath("/WebContent/img");
-        String saveFolder = saveFolders.substring(0,55) + saveFolders.substring(58,85);
-                            				
-		 out.println("savefolder :" + saveFolder); 
-
-		// 총 100M 까지 저장 가능하게 함
-
-		int maxSize = 1024 * 1024 * 100;
-		String encType = "UTF-8";
-
-		try {
-	        MultipartRequest multi = null;
-	        multi = new MultipartRequest(request, saveFolder, maxSize,
-	                encType, new DefaultFileRenamePolicy());
-
-
-	        
-	        String fileName = multi.getFilesystemName("uploadFile");
-	        String original = multi.getOriginalFileName("uploadFile");
-	        String type = multi.getContentType("uploadFile");
-	        File f = multi.getFile("uploadFile");
-	        
-	        out.println("저장된 파일 이름 : " + fileName + "<br/>");
-	        out.println("실제 파일 이름 : " + original + "<br/>");
-	        out.println("파일 타입 : " + type + "<br/>");
-	        if (f != null) {
-	            out.println("크기 : " + f.length()+"바이트");
-	            out.println("<br/>");
-	        }
-	    } catch (IOException ioe) {
-	        System.out.println(ioe);
-	    } catch (Exception ex) {
-	        System.out.println(ex);
-	    }
-
-%>
-	
-                 
-                 
+	 				<div class="card shadow mb-4">
+	 					<form enctype="multipart/form-data" method="post">
+	                        <div class="card-body">
+	               					<div class="table-responsive">
+	                              	  <table class="table table-borderless" id="PlaceTable" width="100%" cellspacing="0" style ="text-align:center;">
+	                                    <thead>
+	                                        <tr>
+	                                            <th>명소 이름</th>
+	                                            <th>주소</th>
+	                                            <th>전화번호</th>
+	                                            <th>경도</th>
+	                                            <th>위도</th>
+	                                            <th>이미지</th>
+	                                        </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                  			<tr>
+	                                  				<td><input type="text" id="place_name" name ="place_name" style = "text-align:center; border:none;"></input></td>
+	                                  				<td><input type="text" id="place_addr" name ="place_addr" style = "text-align:center; border:none;"></input></td>
+	                                  				<td><input type="text" id="place_pn" name ="place_pn" style = "text-align:center; border:none;"></input></td>
+	                                  				<td><input type="text" id="place_lng" name ="place_lng" style = "text-align:center; border:none;"></input></td>
+	                                  				<td><input type="text" id="place_lat" name ="place_lat" style = "text-align:center; border:none;"></input></td>
+	                                  				<td><input type="file" id="place_etc" name ="place_etc" style = "text-align:center; border:none;" ></input></td>
+	                                  			</tr>
+	                                    </tbody>
+	                                </table>
+	                                <input id ="hidden_user_id" name= "hidden_user_id" type ="hidden"/>
+	                            	</div>
+	                            </div>
+	                            <div class ="card-footer" style ="text-align:center;">
+	                            <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" formaction="managePlaceInsertProc.jsp">명소 등록</button>
+								</div>
+	                     	</form>
+						</div>
+					</div>
                 </div>
                 <!-- /.container-fluid -->
 
