@@ -424,4 +424,44 @@ public class UserInformationSQL {
 		return name;
 	} // end of searchId
 	
+	public boolean UpdateProc (UserBean userbean, String user_id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		boolean flag = false;
+		
+		try{
+			String dbId = "root";
+			String dbPass = "Hh33906^";
+			String PortNo = "3306";
+			String DBName = "gjob";
+			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
+			
+			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;
+			
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(jdbcUrl, dbId, dbPass);
+			conn.setAutoCommit(false);
+			sql = "update tb_user set user_id ='" + userbean.getUser_id() + "', user_pw ='" + userbean.getUser_pw() + "', user_name = '" + userbean.getUser_name() + "', user_phone = '" + userbean.getUser_phone() + "', user_man = " + userbean.getUser_man() + " where user_id = '" + user_id + "';";
+			
+			pstmt = conn.prepareStatement(sql);
+			int rs = pstmt.executeUpdate();
+			conn.commit();
+			
+			if(rs==1) { flag = true;}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			if(pstmt != null) {
+				try{ pstmt.close(); }catch(SQLException sqle){ }
+		}	
+			if(conn != null) {
+				try{ conn.close(); }catch(SQLException sqll){ }
+			}
+		}
+		return flag;
+	} // end of changePw
+	
+	
 }

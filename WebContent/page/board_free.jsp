@@ -11,7 +11,7 @@
 <title>어디가 좋아? | 자유게시판</title>
 <%
 	FreeDAO freeDAO = new FreeDAO();
-	int count = freeDAO.Count();
+	//int count = freeDAO.Count();
 	
 
 	int total = 0; //전체 게시글 수
@@ -70,7 +70,7 @@
 		
 		//String sql = "select uid, upw from mpuser where uid = '" + entid + "'";
 	
-		total = count;
+		//total = count;
 		
 		int sort = 1;
 		String sqlSort = "select article_index from tb_user_review order by step asc";

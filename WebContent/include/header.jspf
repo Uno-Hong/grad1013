@@ -1,102 +1,152 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-<meta charset="UTF-8">
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<style type="text/css">
-	/* 오른쪽 사이드 메뉴 스타일 */
-	.sidenav {
-	  height: 100%;
-	  width: 0;
-	  position: fixed;
-	  z-index: 1;
-	  top: 0;
-	  right: 0; /* left로 하면 왼쪽에서 나옴 */
-	  background-color: #111;
-	  overflow-x: hidden;
-	  transition: 0.5s;
-	  padding-top: 60px;
-	}
-	.sidenav a {
-	  text-decoration: none;
-	  font-size: 25px;
-	  color: #818181;
-	  display: block;
-	  transition: 0.3s;
-	}
-	.sidenav a:hover {
-	  color: #111111;
-	  background-color: white;
-	}
-	.sidenav .closebtn {
-	  position: absolute;
-	  top: 0;
-	  left: 25px;
-	  font-size: 36px;
-	  margin-left: 0px;
-	}
-	@media all and (max-width: 500px) {
-	  .sidenav {padding-top: 60px;}
-	  .sidenav a {font-size: 14px;}
-	  .sidenav .closebtn {width: 30px; height: 30px;}
-	}
-	.open_sidemenu {
-		margin-right: 20px;
-		align-content: left;
-	}
-	.right_side_menu {
-		text-align: right;
-	}
-	
-</style>
-<style type="text/css">
-	#hidecomunity {
-		width: 0;
-		z-index: 1;
-		top: 0;
-		right: 0;
-		position: fixed;
-	}
-</style>
-<script type="text/javascript">
-	function openNav() {
-		var mql = window.matchMedia("screen and (max-width: 500px)");
-		
-		if (mql.matches){
-			document.getElementById("mySidenav").style.width = "200px";
-			
-		}else{
-			document.getElementById("mySidenav").style.width = "300px";
-		}
-	}
-	function closeNav() {
-		document.getElementById("mySidenav").style.width = "0px";
-	}
-	function openComunity() {
-		document.getElementById("hidecomunity").style.width = "300px";	
-	}
-</script>
-	<div class="right_side_menu">
-		<div id="mySidenav" class="sidenav" align="left">
-			<a href="#" class="closebtn" onclick="closeNav()" style="width: 40px; height: 40px; align-content: right; text-align: center;">&times;</a>
-			<a href="Main.jsp" style="padding: 8px 8px 8px 32px;">홈</a>
-			<%	// 로그인이 되어있는 상태
-				if(session.getAttribute("sessionID") == null){	%>
-			<a href="login.jsp" style="padding: 8px 8px 8px 32px;">로그인</a>
-			<a href="join.jsp" style="padding: 8px 8px 8px 32px;">회원가입</a>
-			<% }else {%>
-			<a href="logout.jsp" style="padding: 8px 8px 8px 32px;">로그아웃</a>
-			<a href="mypage.jsp" style="padding: 8px 8px 8px 32px;">마이페이지</a>
-			<% } %>
-			<a href="board_free.jsp" name="comunity" style="padding: 8px 8px 8px 32px;" onclick="openComunity()">커뮤니티</a>
-			<a href="board_free.jsp" class="submenu" style="padding: 8px 8px 8px 44px; font-size: 15px;">자유게시판</a>
-			<a href="board_review.jsp" class="submenu" style="padding: 8px 8px 8px 44px; font-size: 15px;;">후기게시판</a>
-			<a href="planner.jsp" style="padding: 8px 8px 8px 32px;">플래너</a>
-			<a href="help.jsp" style="padding: 8px 8px 8px 32px;">고객센터</a>
-			<a href = "/grad/page/manageDB/manageDB.jsp" style="padding: 8px 8px 8px 32px;">관리자페이지</a>
+<!doctype html>
+<html lang="UTF-8">
+<head>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!doctype html>
+<html lang="UTF-8">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+</head>
+<body>
+	<header class="p-3 bg-dark text-white">
+		<div class="container">
+			<div
+				class="d-flex flex-wrap align-items-center justify-content-around justify-content-lg-start">
+				<a href="/"
+					class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+				</a>
+
+				<ul
+					class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-around mb-md-0">
+					<li><a href="Main.jsp" class="nav-link px-2 text-secondary">WDYL</a></li>
+					<li><a href="FreeBoard.jsp" class="nav-link px-2 text-white">COMMUNITY</a></li>
+					<li><a href="FreeBoard.jsp" class="nav-link px-2 text-white">POSTSCRIPT</a></li>
+					<li><a href="planner.jsp" class="nav-link px-2 text-white">PLANNER</a></li>
+					<li><a href="CsCenter.jsp" class="nav-link px-2 text-white">CS
+							CENTER</a></li>
+				</ul>
+
+				<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+					<input type="search" class="form-control form-control-dark"
+						placeholder="Search..." aria-label="Search">
+				</form>
+
+				<div class="text-end">
+					<%
+					// 로그인이 되어있는 상태
+					if (session.getAttribute("sessionID") == null) {
+					%>
+					<button type="button" class="btn btn-outline-light me-2"
+						data-toggle="modal" data-target="#Login">로그인</button>
+					<button type="button" onclick="location.href = 'join.jsp'"
+						class="btn btn-warning">회원가입</button>
+					<button type="button" onclick="location.href = 'Main.jsp'"
+						class="btn btn-outline-light me-2">홈으로</button>
+					<button type="button" class="btn btn-warning" data-toggle="modal"
+						data-target="#ManaLogin">관리자</button>
+					<%
+					} else {
+					%>
+					<button type="button" onclick="location.href = 'logout.jsp'"
+						class="btn btn-outline-light me-2">로그아웃</button>
+					<button type="button" onclick="location.href = 'mypage.jsp'"
+						class="btn btn-warning">마이페이지</button>
+					<%
+					}
+					%>
+				</div>
+			</div>
 		</div>
-		<span style="font-size:40px;cursor:pointer" onclick="openNav()" class="open_sidemenu">&#9776;</span>
+	</header>
+
+	<!-- Login Modal -->
+	<div class="modal fade" id="Login" tabindex="-1" role="dialog"
+		aria-labelledby="LoginLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content rounded-5 shadow">
+				<div class="modal-header p-5 pb-4 border-bottom-0">
+					<!-- <h5 class="modal-title">Modal title</h5> -->
+					<h2 class="fw-bold mb-0" align="center">Login</h2>
+					<button type="button" class="btn-close btn-close-white"
+						data-dismiss="modal"></button>
+				</div>
+				<div class="modal-body p-5 pt-0">
+					<form name="UserLogin" action="loginProc.jsp" method="post"
+						id="form">
+						<div class="form-floating mb-3">
+							<input type="text" class="form-control rounded-4" name="loginid"
+								placeholder="아이디를 입력해주세요.">
+						</div>
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control rounded-4"
+								name="loginpw" placeholder="비밀번호를 입력해주세요.">
+						</div>
+						<button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary"
+							type="submit">Login</button>
+						<hr class="my-4">
+						<button class="w-100 py-2 mb-2 btn btn-outline-dark rounded-4"
+							type="button" onclick="location.href = 'join.jsp'">회원가입
+						</button>
+						<button class="w-100 py-2 mb-2 btn btn-outline-primary rounded-4"
+							type="button" onclick="location.href = 'checkPw.jsp'">
+							비밀번호 찾기</button>
+					</form>
+				</div>
+			</div>
+		</div>
 	</div>
+	<!-- /Login Modal -->
+
+	<!-- Manager Login Modal -->
+	<div class="modal fade" id="ManaLogin" tabindex="-1" role="dialog"
+		aria-labelledby="ManaLoginLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content rounded-5 shadow">
+				<div class="modal-header p-5 pb-4 border-bottom-0">
+					<!-- <h5 class="modal-title">Modal title</h5> -->
+					<h2 class="fw-bold mb-0">관리자 페이지 접속</h2>
+					<button type="button" class="btn-close" data-dismiss="modal"></button>
+				</div>
+
+				<div class="modal-body p-5 pt-0">
+					<form name="ManaLogin" action="ManaLogin.jsp" method="post"
+						id="form">
+						<div class="form-floating mb-3">
+							<input type="password" class="form-control rounded-4" name="pw"
+								placeholder="Password" autofocus>
+						</div>
+						<button class="w-100 mb-2 btn btn-lg rounded-4 btn-primary"
+							type="submit">Sign up</button>
+						<small class="text-muted">By clicking Sign up, you agree
+							to the terms of use.</small>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Manager Login Modal -->
+
+
+
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+</html>

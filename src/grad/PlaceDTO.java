@@ -7,7 +7,6 @@ public class PlaceDTO {
 	private String place_pn;
 	private Float place_lng; //경도
 	private Float place_lat; //위도
-	private String place_etc; //
 	
 	public int getPlace_id() {
 		return place_id;
@@ -45,12 +44,7 @@ public class PlaceDTO {
 	public void setPlace_lat(Float place_lat) {
 		this.place_lat = place_lat;
 	}
-	public String getPlace_etc() {
-		return place_etc;
-	}
-	public void setPlace_etc(String place_etc) {
-		this.place_etc = place_etc;
-	}
+
 	
 	
 }
