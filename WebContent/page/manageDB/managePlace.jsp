@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="userName" class="grad.UserDAO"/>
@@ -801,5 +802,6 @@
     <script src="../../js/demo/datatables-demo.js"></script>
 
 </body>
+
 
 </html>

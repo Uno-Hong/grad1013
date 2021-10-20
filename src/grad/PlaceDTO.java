@@ -1,3 +1,4 @@
+
 package grad;
 
 public class PlaceDTO {
