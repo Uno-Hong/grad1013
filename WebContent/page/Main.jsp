@@ -42,7 +42,7 @@
         <img class="d-block w-100" src="/grad/img/slide_image_1.jpg" alt="First slide"> 
         <div class="carousel-caption d-none d-md-block"> 
         <h5>TEST</h5> 
-        <p>testtesttest</p> 
+        <p>test</p> 
         </div> 
         </div> 
         <div class="carousel-item"> 
