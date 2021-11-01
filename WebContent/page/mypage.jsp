@@ -22,9 +22,9 @@
 		
 	    try{
 	    	String dbId = "root";
-			String dbPass = "Hh33906^";
+			String dbPass = "1234";
 			String PortNo = "3306";
-			String DBName = "gjob";
+			String DBName = "wdyl";
 			String TIMEZONE = "serverTimezone=Asia/Seoul&useSSL=false&allowPublicKeyRetrieval=true&useSSL=false";
 			
 			String jdbcUrl = "jdbc:mysql://localhost:" + PortNo + "/" + DBName + "?" + TIMEZONE ;;

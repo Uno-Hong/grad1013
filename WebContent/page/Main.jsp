@@ -41,8 +41,8 @@
         <!--가로--> 
         <img class="d-block w-100" src="/grad/img/slide_image_1.jpg" alt="First slide"> 
         <div class="carousel-caption d-none d-md-block"> 
-        <h5>TESTTESTTEST</h5> 
-        <p>test</p> 
+        <h5>TEST 중입니다.</h5> 
+        <p>test 중입니다.</p> 
         </div> 
         </div> 
         <div class="carousel-item"> 
