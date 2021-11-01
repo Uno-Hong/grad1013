@@ -464,7 +464,6 @@ public class UserDAO {
 		return flag;
 	} // end of changePw
 	
-	
 }
 
 
