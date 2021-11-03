@@ -15,37 +15,43 @@
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
 <style type="text/css">
-<
-style
- 
-type
-="
-text
-/
-css
-"
->
-@media all and (max-width: 500px) {
-	#body_menu {
-		min-width: 50%;
+	@media all and (max-width: 500px) {
+		#body_menu {
+			min-width: 50%;
+			width: auto;
+			margin-left: 5%;
+			margin-right: 5%;
+		}
+		#image_slide {
+			height: 20vh;
+		}
+		#slide {
+			height: 20vh;
+		}
+		#slide ul {
+			width: 20vw;
+		}
+		img {
+			width: 60vw;
+			height: 20vh;
+		}
+	}
+	/* 캐러셀(이미지슬라이드) 이미지 크기변경 */
+	.carousel-inner {
 		width: auto;
-		margin-left: 5%;
-		margin-right: 5%;
+		height: 400px; /* 이미지 높이 변경 */
 	}
-	#image_slide {
-		height: 20vh;
+	
+	.carousel-item {
+		width: auto;
+		height: 100%;
 	}
-	#slide {
-		height: 20vh;
+	
+	.d-block {
+		display: block;
+		width: auto;
+		height: 100%;
 	}
-	#slide ul {
-		width: 20vw;
-	}
-	img {
-		width: 60vw;
-		height: 20vh;
-	}
-}
 </style>
 </head>
 <body style="background: #E1E1E1;">
@@ -115,7 +121,7 @@ css
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 1-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" href="test_1.jsp"> <img
+						<a class="portfolio-link" href="test1.jsp"> <img
 							class="img-fluid" src="/grad/img/slide_image_1.jpg" id="image_1">
 						</a>
 
