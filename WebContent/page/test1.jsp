@@ -60,7 +60,6 @@
 #menu_wrap .option p {
 	margin: 10px 0;
 }
-<<<<<<< HEAD
 
 #menu_wrap label {
 	font-size: 15px;
@@ -75,7 +74,6 @@
 	padding: 3px;
 }
 
-=======
 #menu_wrap label {
 	font-size : 15px;
 }
@@ -84,7 +82,6 @@
 	margin-left: 5px;
 }
 
->>>>>>> fff41998ea13429d01f791974bca2a3f9304e7b5
 #placesList li {
 	list-style: none;
 }
