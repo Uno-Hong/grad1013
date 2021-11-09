@@ -1,7 +1,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import = "java.sql.*" %>
+<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,25 +61,22 @@
 	margin: 10px 0;
 }
 
-#menu_wrap label {
-	font-size: 15px;
-	font-weight: bold;
-}
-
 #menu_wrap .option button {
 	margin-left: 5px;
 	font-size: 15px;
 	font-weight: bold;
 	width: 100px;
-	padding: 3px;
-}
-
-#menu_wrap label {
-	font-size : 15px;
+	padding: 2px;
 }
 
 #menu_wrap .option button {
-	margin-left: 5px;
+	margin-left: 2px;
+}
+
+#menu_wrap select {
+	padding : 2px;
+	font-family: 맑은고딕;
+	font-weight: bold;
 }
 
 #placesList li {
@@ -218,7 +215,7 @@
 		<%@ include file="/include/header.jspf"%>
 	</div>
 	<!-- end header div -->
-	
+
 	<div class="map_wrap">
 		<div id="map"
 			style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
@@ -229,28 +226,26 @@
 					<form onsubmit="searchPlaces(); return false;">
 						<!-- 키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
                     <button type="submit">검색하기</button> -->
-						<label>시도 : </label>&nbsp<select id="sido">
-							<option value="0">선택</option>
-						</select> &nbsp
-						 <label>구군 : &nbsp</label><select id="gugun">
-							<option value="0">선택</option>
-						</select>
+						<script src="../js/Sido.js"></script>
+						<select name="sido1" id="sido"></select>&nbsp&nbsp
+						<select name="gugun1"id="gugun"></select>&nbsp&nbsp
+						<select name="PorR"id="PorR">
+							<option value = "0">명소</option>
+							<option value = "1">맛집</option>
+						</select>&nbsp&nbsp
 						<!-- <label>읍면동 : &nbsp</label><select id="dong">
 							<option value="0">선택</option>
 						</select>
 						 -->
 						<button type="submit">검색</button>
-						<%
-							out.println("aa");
-						%>
 					</form>
 				</div>
 			</div>
 		</div>
-			<hr>
-			<ul id="placesList"></ul>
-			<div id="pagination"></div>
-		</div>
+		<hr>
+		<ul id="placesList"></ul>
+		<div id="pagination"></div>
+	</div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c61f42cba41a68d18ac8bb0ab6996734&libraries=services"></script>
