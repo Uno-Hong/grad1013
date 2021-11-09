@@ -105,7 +105,7 @@
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 1-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" href="test_1.jsp"> <img
+						<a class="portfolio-link" href="test1.jsp"> <img
 							class="img-fluid" src="/grad/img/slide_image_1.jpg" id="image_1">
 						</a>
 
@@ -119,7 +119,7 @@
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 2-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" href="test_1.jsp"> <img
+						<a class="portfolio-link" href="test1.jsp"> <img
 							class="img-fluid" src="/grad/img/slide_image_2.jpg" alt="...">
 						</a>
 						<div class="portfolio-caption">
@@ -131,7 +131,7 @@
 				<div class="col-lg-4 col-sm-6 mb-4">
 					<!-- Portfolio item 3-->
 					<div class="portfolio-item">
-						<a class="portfolio-link" href="test_1.jsp"> <img
+						<a class="portfolio-link" href="test1.jsp"> <img
 							class="img-fluid" src="/grad/img/slide_image_3.jpg" alt="...">
 						</a>
 						<div class="portfolio-caption">
