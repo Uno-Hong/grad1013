@@ -221,6 +221,7 @@
 		<%@ include file="/include/header.jspf"%>
 	</div>
 	<!-- end header div -->
+	
 	<div class="map_wrap">
 		<div id="map"
 			style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
@@ -231,8 +232,6 @@
 					<form onsubmit="searchPlaces(); return false;">
 						<!-- 키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
                     <button type="submit">검색하기</button> -->
-
-<<<<<<< HEAD
 						<label>시도 : </label>&nbsp<select id="sido">
 							<option value="0">선택</option>
 						</select> &nbsp
@@ -249,27 +248,12 @@
 						%>
 					</form>
 				</div>
-				
-=======
-						<label>시도 : </label><select id="sido">
-							<option value="0">선택</option>
-						</select>
-						<label>구군 : </label><select id="gugun">
-							<option value="0">선택</option>
-						</select>
-						<label>읍면동 : </label><select id="dong">
-							<option value="0">선택</option>
-						</select>
-						<button type = "submit">검색하기</button>
-					</form>
-				</div>
->>>>>>> fff41998ea13429d01f791974bca2a3f9304e7b5
 			</div>
+		</div>
 			<hr>
 			<ul id="placesList"></ul>
 			<div id="pagination"></div>
 		</div>
-	</div>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c61f42cba41a68d18ac8bb0ab6996734&libraries=services"></script>
