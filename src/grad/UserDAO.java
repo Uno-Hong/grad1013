@@ -78,7 +78,7 @@ public class UserDAO {
 				conn.setAutoCommit(false);
 				sql = "select user_id, user_pw from tb_user where user_id = '" + id + "' and user_pw = '" + pw + "'";
 				pstmt = conn.prepareStatement(sql);
-				rs = pstmt.executeQuery(sql);
+				rs = pstmt.executeQuery();
 				flag = rs.next();
 				
 			}catch(Exception e){

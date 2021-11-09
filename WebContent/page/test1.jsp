@@ -60,6 +60,7 @@
 #menu_wrap .option p {
 	margin: 10px 0;
 }
+<<<<<<< HEAD
 
 #menu_wrap label {
 	font-size: 15px;
@@ -74,6 +75,16 @@
 	padding: 3px;
 }
 
+=======
+#menu_wrap label {
+	font-size : 15px;
+}
+
+#menu_wrap .option button {
+	margin-left: 5px;
+}
+
+>>>>>>> fff41998ea13429d01f791974bca2a3f9304e7b5
 #placesList li {
 	list-style: none;
 }
@@ -221,6 +232,7 @@
 						<!-- 키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15"> 
                     <button type="submit">검색하기</button> -->
 
+<<<<<<< HEAD
 						<label>시도 : </label>&nbsp<select id="sido">
 							<option value="0">선택</option>
 						</select> &nbsp
@@ -238,6 +250,20 @@
 					</form>
 				</div>
 				
+=======
+						<label>시도 : </label><select id="sido">
+							<option value="0">선택</option>
+						</select>
+						<label>구군 : </label><select id="gugun">
+							<option value="0">선택</option>
+						</select>
+						<label>읍면동 : </label><select id="dong">
+							<option value="0">선택</option>
+						</select>
+						<button type = "submit">검색하기</button>
+					</form>
+				</div>
+>>>>>>> fff41998ea13429d01f791974bca2a3f9304e7b5
 			</div>
 			<hr>
 			<ul id="placesList"></ul>
